@@ -1,0 +1,70 @@
+<div class="leftpanel">
+    <div class="media profile-left">
+<!-- Imagen del usuario -->
+        <a class="pull-left profile-thumb" href="profile.html">
+            <img class="img-circle" src="views/images/photos/profile.png" alt="">
+        </a>
+        <div class="media-body">
+            <h4 class="media-heading"><?php echo $users[$_SESSION['app_id']]['nombre'] ;?></h4>
+            <small class="text-muted">
+              <?php
+              switch ($users[$_SESSION['app_id']]['nivel']) {
+                case 0:
+                  echo 'Administrador';
+                break;
+                case 1:
+                  echo 'Analista';
+                break;
+                case 2:
+                  echo 'Cliente';
+                break;
+              }
+              ?>
+            </small>
+        </div>
+    </div><!-- media -->
+
+    <h5 class="leftpanel-title">Navegación</h5>
+    <ul class="nav nav-pills nav-stacked">
+        <li><a href="?view=home"><i class="fa fa-home"></i> <span>Inicio</span></a></li>
+        <li class="parent"><a href="#"><i class="fa fa-truck"></i> <span>Compras</span></a>
+          <ul class="children">
+              <li><a href="?view=cnueva"><i class="glyphicon glyphicon-shopping-cart"></i> <span>Nueva Compra</span></a></li>
+              <li><a href="?view=clistado"><i class="glyphicon glyphicon-th-list"></i> <span>Historial</span></a></li>
+          </ul>
+        </li>
+        <li class="parent"><a href="#"><i class="glyphicon glyphicon-th-large"></i> <span>Productos</span></a>
+          <ul class="children">
+              <li><a href="?view=pcategorias"><i class="glyphicon glyphicon-shopping-cart"></i> <span>Categorias</span></a></li>
+              <li><a href="?view=plistado"><i class="glyphicon glyphicon-th-list"></i> <span>Listado</span></a></li>
+          </ul>
+        </li>
+        <li class="parent"><a href=""><i class="fa fa-dollar"></i> <span>Facturación</span></a>
+            <ul class="children">
+              <li><a href="?view=fnueva"><i class="fa fa-asterisk"></i> <span>Nueva...</span></a></li>
+              <li><a href="?view=flistado"><i class="glyphicon glyphicon-list-alt"></i> <span>Administrar facturas</span></a></li>
+            </ul>
+        </li>
+        <li class="parent"><a href=""><i class="fa fa-bar-chart-o"></i> <span>Reportes</span></a>
+            <ul class="children">
+              <li><a href="?view=rventas"><i class="fa fa-signal"></i> <span>Reportes de Ventas</span></a></li>
+              <li><a href="?view=rcompras"><i class="fa fa-credit-card"></i> <span>Reportes de Compras</span></a></li>
+              <li><a href="?view=rinventario"><i class="fa fa-cubes"></i> <span>Reportes de Inventario</span></a></li>
+            </ul>
+        </li>
+        <li class="parent"><a href=""><i class="fa fa-user"></i> <span>Contactos</span></a>
+            <ul class="children">
+                <li><a href="?view=clientes"><i class="glyphicon glyphicon-user"></i> <span>Clientes</span></a></li>
+                <li><a href="?view=proveedores"><i class="glyphicon glyphicon-briefcase"></i> <span>Proveedores</span></a></li>
+            </ul>
+        </li>
+        <li class="parent"><a href=""><i class="fa fa-wrench"></i> <span>Configuración</span></a>
+            <ul class="children">
+              <li><a href="?view=bitacora"><i class="fa fa-unlock-alt"></i> <span>Accesos</span></a></li>
+              <li><a href="?view=usuarios"><i class="fa fa-users"></i> <span>Usuarios</span></a></li>
+              <li><a href="?view=otros"><i class="fa fa-desktop"></i> <span>Otros</span></a></li>
+            </ul>
+        </li>
+    </ul>
+
+</div><!-- leftpanel -->
