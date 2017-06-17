@@ -1,192 +1,192 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <title><?php echo APP_TITLE?></title>
-        <link href="views/css/style.default.css" rel="stylesheet">
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-        <script src="views/js/html5shiv.js"></script>
-        <script src="views/js/respond.min.js"></script>
-        <![endif]-->
-    </head>
-    <body class="signin">
-<!-- Login -->
-        <section id="login">
-            <div class="panel panel-signin">
-              <!-- Mensajes al usuario -->
-              <div id="__AJAX_LOGIN__"></div>
-              <!-- mensaje para indicarle al usuario que su cuenta fue activada -->
-              <?php
-                if(isset($_GET['activado'])){
-                  echo $_GET['activado'];
-                  if($_GET['activado']=='true'){
-                    echo '<div class="alert alert-dismissible alert-success">
-                      <button type="button" class="close" data-dismiss="alert">&times;</button>
-                      <strong>LISTO!</strong> Cuenta activada. Ingresa tus datos para iniciar.
-                    </div>';
-                  }else{
-                    echo '<div class="alert alert-dismissible alert-danger">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>ERROR!</strong> Tu usuario no pudo ser activado. Contacte al admnistrador del sistema.
-                  </div>';
-                  }
-                }
-              ?>
-              <!-- /Mensajes al usuario -->
-                <div class="panel-body">
-                    <div class="logo text-center">
-                        <!-- <img src="views/images/logo-primary.png" alt="Logo" >
-PENDIENTE EL LOGO DEL LA APLICACION!!!!
-                       -->
-                    </div>
-                    <br />
-                    <h4 class="text-center mb5">Bienvenido</h4>
-                    <p class="text-center">Ingresa tus datos para iniciar</p>
-                    <div class="mb30"></div>
-                    <!-- formulario de logueo -->
-                    <div role="form" onkeypress="return runLogin(event)">
-                        <div class="input-group mb15">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input type="text" class="form-control" placeholder="Correo" id="usuario" required>
-                        </div><!-- input-group -->
-                        <div class="input-group mb15">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input type="password" class="form-control" placeholder="Clave" id="clave" required>
-                        </div><!-- input-group -->
-                        <div class="clearfix">
-                            <div class="pull-left">
-                                <div class="ckbox ckbox-primary mt10">
-                                    <input type="checkbox" id="sesion" value="1">
-                                    <label for="sesion">Recuérdame</label>
-                                </div>
-                            </div>
-                            <div class="pull-right">
-                                <button type="button" class="btn btn-success" onclick="return goLogin()">Ingresar <i class="fa fa-angle-right ml5"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /formulario de logueo -->
-                    <br>
-                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target=".recuperar">No recuerdo mi clave</button>
-                </div><!-- panel-body -->
-                <div class="panel-footer">
-                    ¿Aún no tienes una cuenta?
-                    <div class="pull-right">
-                      <button class="btn btn-primary btn-md" data-toggle="modal" data-target=".registro">Crea una ahora</button>
-                   </div>
-                </div><!-- panel-footer -->
-            </div><!-- panel -->
-        </section>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title><?php echo APP_TITLE?></title>
+  <link href="views/css/style.default.css" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="views/js/html5shiv.js"></script>
+  <script src="views/js/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body class="signin">
+  <!-- Login -->
+  <section id="login">
+    <div class="panel panel-signin">
+      <!-- Mensajes al usuario -->
+      <div id="__AJAX_LOGIN__"></div>
+      <!-- mensaje para indicarle al usuario que su cuenta fue activada -->
+      <?php
+      if(isset($_GET['activado'])){
+        echo $_GET['activado'];
+        if($_GET['activado']=='true'){
+          echo '<div class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>LISTO!</strong> Cuenta activada. Ingresa tus datos para iniciar.
+          </div>';
+        }else{
+          echo '<div class="alert alert-dismissible alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>ERROR!</strong> Tu usuario no pudo ser activado. Contacte al admnistrador del sistema.
+          </div>';
+        }
+      }
+      ?>
+      <!-- /Mensajes al usuario -->
+      <div class="panel-body">
+        <div class="logo text-center">
+          <!-- <img src="views/images/logo-primary.png" alt="Logo" >
+          PENDIENTE EL LOGO DEL LA APLICACION!!!!
+        -->
+      </div>
+      <br />
+      <h4 class="text-center mb5">Bienvenido</h4>
+      <p class="text-center">Ingresa tus datos para iniciar</p>
+      <div class="mb30"></div>
+      <!-- formulario de logueo -->
+      <div role="form" onkeypress="return runLogin(event)">
+        <div class="input-group mb15">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+          <input type="text" class="form-control" placeholder="Correo" id="usuario" required>
+        </div><!-- input-group -->
+        <div class="input-group mb15">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+          <input type="password" class="form-control" placeholder="Clave" id="clave" required>
+        </div><!-- input-group -->
+        <div class="clearfix">
+          <div class="pull-left">
+            <div class="ckbox ckbox-primary mt10">
+              <input type="checkbox" id="sesion" value="1">
+              <label for="sesion">Recuérdame</label>
+            </div>
+          </div>
+          <div class="pull-right">
+            <button type="button" class="btn btn-success" onclick="return goLogin()">Ingresar <i class="fa fa-angle-right ml5"></i></button>
+          </div>
+        </div>
+      </div>
+      <!-- /formulario de logueo -->
+      <br>
+      <button class="btn btn-danger btn-sm" data-toggle="modal" data-target=".recuperar">No recuerdo mi clave</button>
+    </div><!-- panel-body -->
+    <div class="panel-footer">
+      ¿Aún no tienes una cuenta?
+      <div class="pull-right">
+        <button class="btn btn-primary btn-md" data-toggle="modal" data-target=".registro">Crea una ahora</button>
+      </div>
+    </div><!-- panel-footer -->
+  </div><!-- panel -->
+</section>
 <!-- /Login -->
 <!-- Modal para registro -->
 <div class="modal fade registro" tabindex="-1" role="dialog" data-backdrop="static">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <!-- Mensajes al usuario -->
-        <div id="__AJAX_REGISTRO__"></div>
-        <!-- /Mensajes al usuario -->
-          <div class="modal-header">
-              <button aria-hidden="true" data-dismiss="modal" class="close" type="button">&times;</button>
-              <h4 class="modal-title">Registro de Usuario</h4>
-          </div>
-          <div class="modal-body">
-            <div role="form" onkeypress="return runRegistro(event)">
-              <div class="row">
-                  <div class="col-sm-6">
-                      <div class="input-group mb15">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input type="text" class="form-control" placeholder="Ingresa tu nombre" id="nombre_reg" required>
-                      </div><!-- input-group -->
-                  </div>
-                  <div class="col-sm-6">
-                      <div class="input-group mb15">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                          <input type="email" class="form-control" placeholder="Ingrese su Email" id="usuario_reg" required>
-                      </div><!-- input-group -->
-                  </div>
-              </div><!-- row -->
-              <br />
-              <div class="row">
-                  <div class="col-sm-6">
-                      <div class="input-group mb15">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                          <input type="password" class="form-control" placeholder="Ingrese su clave" id="clave_reg" required>
-                      </div><!-- input-group -->
-                  </div>
-                  <div class="col-sm-6">
-                      <div class="input-group mb15">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                          <input type="password" class="form-control" placeholder="Confirme su clave" id="clave_reg_conf" required>
-                      </div><!-- input-group -->
-                  </div>
-              </div><!-- row -->
-                <br />
-                <div class="clearfix">
-                    <div class="pull-left">
-                        <div class="ckbox ckbox-primary mt5">
-                            <input type="checkbox" id="terminos" value="1">
-                            <label for="terminos">Acepto los <a href="">Terminos y condiciones.</a></label>
-                        </div>
-                    </div>
-                    <div class="pull-right">
-                        <button type="button" class="btn btn-success" onclick="return goRegistro()">Crear la cuenta ahora.<i class="fa fa-angle-right ml5"></i></button>
-                    </div>
-                </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Mensajes al usuario -->
+      <div id="__AJAX_REGISTRO__"></div>
+      <!-- /Mensajes al usuario -->
+      <div class="modal-header">
+        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">&times;</button>
+        <h4 class="modal-title">Registro de Usuario</h4>
+      </div>
+      <div class="modal-body">
+        <div role="form" onkeypress="return runRegistro(event)">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="input-group mb15">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" class="form-control" placeholder="Ingresa tu nombre" id="nombre_reg" required>
+              </div><!-- input-group -->
+            </div>
+            <div class="col-sm-6">
+              <div class="input-group mb15">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                <input type="email" class="form-control" placeholder="Ingrese su Email" id="usuario_reg" required>
+              </div><!-- input-group -->
+            </div>
+          </div><!-- row -->
+          <br />
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="input-group mb15">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input type="password" class="form-control" placeholder="Ingrese su clave" id="clave_reg" required>
+              </div><!-- input-group -->
+            </div>
+            <div class="col-sm-6">
+              <div class="input-group mb15">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input type="password" class="form-control" placeholder="Confirme su clave" id="clave_reg_conf" required>
+              </div><!-- input-group -->
+            </div>
+          </div><!-- row -->
+          <br />
+          <div class="clearfix">
+            <div class="pull-left">
+              <div class="ckbox ckbox-primary mt5">
+                <input type="checkbox" id="terminos" value="1">
+                <label for="terminos">Acepto los <a href="">Terminos y condiciones.</a></label>
+              </div>
+            </div>
+            <div class="pull-right">
+              <button type="button" class="btn btn-success" onclick="return goRegistro()">Crear la cuenta ahora.<i class="fa fa-angle-right ml5"></i></button>
             </div>
           </div>
+        </div>
       </div>
     </div>
+  </div>
 </div>
 <!-- /Modal para registro -->
 <!-- Modal para recuperar -->
 <div class="modal fade recuperar" tabindex="-2" role="dialog" data-backdrop="static">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <!-- Mensajes al usuario -->
-        <div id="__AJAX_RECUPERAR__"></div>
-        <!-- /Mensajes al usuario -->
-          <div class="modal-header">
-              <button aria-hidden="true" data-dismiss="modal" class="close" type="button">&times;</button>
-              <h4 class="modal-title">Recuperar mi clave de usuario</h4>
-          </div>
-          <div class="modal-body">
-            <div role='form' onkeypress="return runRecuperar(event)">
-              <div class="row">
-                  <div class="col-sm-12">
-                      <div class="input-group mb15">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                          <input type="email" class="form-control" placeholder="Ingresa tu correo" id="email_recuperar">
-                      </div><!-- input-group -->
-                  </div>
-              </div><!-- row -->
-              <br />
-                <div class="clearfix">
-                    <div class="pull-right">
-                        <button type="button" class="btn btn-success" onclick="return goRecuperar()">Enviar instrucciones.<i class="fa fa-angle-right ml5"></i></button>
-                    </div>
-                </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Mensajes al usuario -->
+      <div id="__AJAX_RECUPERAR__"></div>
+      <!-- /Mensajes al usuario -->
+      <div class="modal-header">
+        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">&times;</button>
+        <h4 class="modal-title">Recuperar mi clave de usuario</h4>
+      </div>
+      <div class="modal-body">
+        <div role='form' onkeypress="return runRecuperar(event)">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="input-group mb15">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                <input type="email" class="form-control" placeholder="Ingresa tu correo" id="email_recuperar">
+              </div><!-- input-group -->
+            </div>
+          </div><!-- row -->
+          <br />
+          <div class="clearfix">
+            <div class="pull-right">
+              <button type="button" class="btn btn-success" onclick="return goRecuperar()">Enviar instrucciones.<i class="fa fa-angle-right ml5"></i></button>
             </div>
           </div>
+        </div>
       </div>
     </div>
+  </div>
 </div>
 <!-- /Modal para recuperar -->
 
 <!-- Lista de Scripts -->
-        <script src="views/js/jquery-1.11.1.min.js"></script>
-        <script src="views/js/jquery-migrate-1.2.1.min.js"></script>
-        <script src="views/js/bootstrap.min.js"></script>
-        <script src="views/js/modernizr.min.js"></script>
-        <script src="views/js/pace.min.js"></script>
-        <script src="views/js/retina.min.js"></script>
-        <script src="views/js/jquery.cookies.js"></script>
-        <script src="views/js/custom.js"></script>
-        <script src="views/js/login.js"></script>
-        <script src="views/js/registro.js"></script>
-        <script src="views/js/recuperar.js"></script>
-    </body>
+<script src="views/js/jquery-1.11.1.min.js"></script>
+<script src="views/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="views/js/bootstrap.min.js"></script>
+<script src="views/js/modernizr.min.js"></script>
+<script src="views/js/pace.min.js"></script>
+<script src="views/js/retina.min.js"></script>
+<script src="views/js/jquery.cookies.js"></script>
+<script src="views/js/custom.js"></script>
+<script src="views/js/login.js"></script>
+<script src="views/js/registro.js"></script>
+<script src="views/js/recuperar.js"></script>
+</body>
 </html>
