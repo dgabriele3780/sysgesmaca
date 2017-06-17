@@ -1,9 +1,11 @@
 function DataEdit(e){
-  var id;
-  id = e;
+  var id=e;
+  __('nombre_edit').value="";
+  __('usuario_edit').value="";
+  __('clave_edit').value="";
   console.log(id);
 }
-function goLogin(){
+function goEditarU(){
   var connect, form, response, result, user, pass, sesion;
   user = __('usuario').value;
   pass = __('clave').value;
@@ -39,8 +41,8 @@ function goLogin(){
   connect.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
   connect.send(form);
 }
-function runLogin(e){
+function runEditarU(e){
   if(e.keyCode == 13){
-    goLogin();
+    goEditarU();
   }
 }

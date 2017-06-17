@@ -61,16 +61,16 @@
             <div class="col-sm-6">
               <div class="input-group mb15">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                <input type="password" class="form-control" placeholder="Ingrese su clave" id="clave_reg" required>
+                <input type="password" class="form-control" id="clave_edit">
               </div><!-- input-group -->
             </div>
             <div class="col-sm-6">
               <div class="input-group mb15">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                <select>
-                  <<option value="0">Administrador</option>
-                  <<option value="1">Analista</option>
-                  <<option value="2">Cliente</option>
+                <select id='nivel'>
+                  <option value="0">Administrador</option>
+                  <option value="1">Analista</option>
+                  <option value="2">Cliente</option>
                 </select>
               </div><!-- input-group -->
             </div>
