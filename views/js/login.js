@@ -7,7 +7,7 @@ function goLogin(){
   connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
   connect.onreadystatechange = function (){
     if(connect.readyState == 4 && connect.status == 200){
-// Proceso de logueo
+      // Proceso de logueo
       if(connect.responseText == 1){
         result = '<div class="alert alert-dismissible alert-success">';
         result += '<button type="button" class="close" data-dismiss="alert">&times;</button>';
@@ -15,7 +15,7 @@ function goLogin(){
         result += '<p>Vamos a la aplicación.</p>';
         result += '</div>';
         __('__AJAX_LOGIN__').innerHTML = result;
-// Redireccionamiento
+        // Redireccionamiento
         location.href = "?view=home";
       }else{
         __('__AJAX_LOGIN__').innerHTML = connect.responseText;
