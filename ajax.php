@@ -12,6 +12,9 @@ if($_POST) {
     case 'recuperar':
       require('core/bin/ajax/goRecuperar.php');
     break;
+    case 'datausuario':
+      require('core/bin/ajax/dataUsuario.php');
+    break;
     default:
       header('location: index.php');
     break;
