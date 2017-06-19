@@ -6,9 +6,7 @@
     <div class="mainpanel">
       <div class="pageheader">
         <div class="media">
-          <div class="pageicon pull-left">
-            <i class="fa fa-users"></i>
-          </div>
+          <div class="pageicon pull-left"><i class="fa fa-users"></i></div>
           <div class="media-body">
             <ul class="breadcrumb">
               <li><a href="#"><i class="glyphicon glyphicon-home"></i></a></li>
@@ -20,11 +18,7 @@
       </div><!-- pageheader -->
       <div class="contentpanel">
         <br>
-
-        <div class="table-responsive">
-          <?php echo $list_users; ?>
-        </div>
-
+        <div class="table-responsive"><?php echo $list_users; ?></div>
       </div><!-- contentpanel -->
     </div><!-- mainpanel -->
   </div><!-- mainwrapper -->
@@ -41,18 +35,18 @@
         <h4 class="modal-title">Edición del Usuario</h4>
       </div>
       <div class="modal-body">
-        <div role="form" onkeypress="return runEditarU(event)">
+        <div role="form">
           <div class="row">
             <div class="col-sm-6">
               <div class="input-group mb15">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                <input type="text" class="form-control" id="nombre_edit" value="">
+                <input type="text" class="form-control" id="nombre_edit">
               </div><!-- input-group -->
             </div>
             <div class="col-sm-6">
               <div class="input-group mb15">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                <input type="email" class="form-control" id="usuario_edit" value="">
+                <input type="email" class="form-control" id="usuario_edit">
               </div><!-- input-group -->
             </div>
           </div><!-- row -->
@@ -61,13 +55,13 @@
             <div class="col-sm-6">
               <div class="input-group mb15">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                <input type="password" class="form-control" id="clave_edit">
+                <input type="password" class="form-control" id="clave_edit" placeholder="clave">
               </div><!-- input-group -->
             </div>
             <div class="col-sm-6">
               <div class="input-group mb15">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                <select id='nivel'>
+                <span class="input-group-addon"><i class="fa fa-group"></i></span>
+                <select id="select-nivel" class="width200">
                   <option value="0">Administrador</option>
                   <option value="1">Analista</option>
                   <option value="2">Cliente</option>
@@ -77,14 +71,8 @@
           </div><!-- row -->
           <br />
           <div class="clearfix">
-            <div class="pull-left">
-              <div class="ckbox ckbox-primary mt5">
-                <input type="checkbox" id="terminos" value="1">
-                <label>Enviar Email al usuario</label>
-              </div>
-            </div>
             <div class="pull-right">
-              <button type="button" class="btn btn-success" onclick="return goEditarU()">Guardar cambios<i class="fa fa-angle-right ml5"></i></button>
+              <button type="button" class="btn btn-success" id="guardardatos">Guardar cambios<i class="fa fa-angle-right ml5"></i></button>
               <button aria-hidden="true" data-dismiss="modal" class="btn btn-danger" type="button">Cancelar<i class="fa  fa-times-circle ml5"></i></button>
             </div>
           </div>

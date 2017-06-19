@@ -15,6 +15,9 @@ if($_POST) {
     case 'datausuario':
       require('core/bin/ajax/dataUsuario.php');
     break;
+    case 'editusuario':
+      require('core/bin/ajax/editUsuario.php');
+    break;
     default:
       header('location: index.php');
     break;
