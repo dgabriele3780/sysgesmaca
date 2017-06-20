@@ -18,6 +18,16 @@ if($_POST) {
     case 'editusuario':
       require('core/bin/ajax/editUsuario.php');
     break;
+    case 'eliminausuario':
+      require('core/bin/ajax/eliminaUsuario.php');
+    break;
+    case 'activarusuario':
+      require('core/bin/ajax/activarUsuario.php');
+    break;
+    case 'datacliente':
+      require('core/bin/ajax/dataCliente.php');
+    break;
+
     default:
       header('location: index.php');
     break;
