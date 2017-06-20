@@ -1,3 +1,60 @@
+function Activar(e){
+  var id = e;
+  var Objeto = new Object();
+  Objeto.id = id;
+  var data= {user:Objeto};
+  $.post('ajax.php?mode=activarusuario',data,
+  function(data){
+
+      location.href = "?view=usuarios";
+
+  },"json");
+}
+function DataElimina(e){
+  var id = e;
+  var Objeto = new Object();
+  Objeto.id = id;
+  var data= {id:Objeto};
+  $.post('ajax.php?mode=datausuario',data,
+  function(data){
+    if(data.valid==true){
+      var respuesta;
+      respuesta = JSON.parse(data.respuesta);
+      $('#nombre_elimina').html(respuesta[id].nombre);
+      $('#eliminaUser').attr("onclick", 'return goEliminaU('+ id +')');
+    }
+    else{
+      result = '<div class="alert alert-dismissible alert-warning">';
+      result += '<button type="button" class="close" data-dismiss="danger">&times;</button>';
+      result += '<h4><strong>ERROR!</strong></h4>';
+      result += '<p>Ocurrió un error en la consulta.</p>';
+      result += '</div>';
+      __('__AJAX_ELIMINAR__').innerHTML = result;
+    }
+  },"json");
+}
+function goEliminaU(e){
+  var id = e;
+  var Objeto = new Object();
+  Objeto.id = id;
+  var data= {user:Objeto};
+  $.post('ajax.php?mode=eliminausuario',data,
+  function(data){
+    if(data.valid==true){
+      location.href = "?view=usuarios";
+    }
+    else{
+      var result;
+      result = '<div class="alert alert-dismissible alert-danger">';
+      result += '<button type="button" class="close" data-dismiss="danger">&times;</button>';
+      result += '<h4><strong>Error!</strong></h4>';
+      result += '<p>Ocurrió un error en la consulta.</p>';
+      result += '</div>';
+      __('__AJAX_ELIMINAR__').innerHTML = result;
+    }
+  },"json");
+}
+// Edicion del usuario
 function DataEdit(e){
   var id = e;
   var Objeto = new Object();

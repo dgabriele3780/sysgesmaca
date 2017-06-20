@@ -16,6 +16,7 @@ if(!empty($_POST['id'])){
     $u=json_encode($u);
     $data['valid']=true;
   }else{
+    // REVISAR ESTA PARTE, LOS MENSAJES HAY QUE CAMBIARLOS DE POSICION
     $data['valid']=false;
     $u = '<div class="alert alert-dismissible alert-danger">
     <button type="button" class="close" data-dismiss="alert">&times;</button>

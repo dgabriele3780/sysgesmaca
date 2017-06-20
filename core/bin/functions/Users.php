@@ -10,7 +10,8 @@ function Users(){
         'id'    =>  $d['id'],
         'user'  =>  $d['user'],
         'nombre'=>  $d['nombre'],
-        'nivel' =>  $d['nivel']
+        'nivel' =>  $d['nivel'],
+        'isActive'=>$d['isActive']
       );
     }
   }else{

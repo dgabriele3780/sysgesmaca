@@ -82,5 +82,37 @@
   </div>
 </div>
 <!-- /Modal para editar registro -->
+<!-- Modal para confirmar borrado -->
+<div class="modal fade borrarU" tabindex="-1" role="dialog" data-backdrop="static">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Mensajes al usuario -->
+      <div id="__AJAX_ELIMINAR__"></div>
+      <!-- /Mensajes al usuario -->
+      <div class="modal-header">
+        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">&times;</button>
+        <h4 class="modal-title">Eliminar Usuario</h4>
+      </div>
+      <div class="modal-body">
+        <div role="form">
+          <div class="row">
+            <div class="alert alert-danger">
+              <strong>Cuidado!</strong> <br> Esta acción es irreversible. ¿Desea eliminar el usuario?
+              <strong><div id="nombre_elimina"></div></strong>
+            </div>
+          </div><!-- row -->
+          <br />
+          <div class="clearfix">
+            <div class="pull-right">
+              <button type="button" class="btn btn-success" id="eliminaUser">Procede a eliminar<i class="fa fa-angle-right ml5"></i></button>
+              <button aria-hidden="true" data-dismiss="modal" class="btn btn-danger" type="button">Cancelar<i class="fa  fa-times-circle ml5"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Modal para confirmar borrado -->
 
 <?php include(HTML_DIR.'overall/footer.html');?>
