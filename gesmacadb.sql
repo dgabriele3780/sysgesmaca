@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2017-06-05 01:01:47
+Date: 2017-06-19 01:38:05
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -23,15 +23,17 @@ CREATE TABLE `bitacora` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `usuario_id` int(11) DEFAULT NULL,
   `accion` varchar(128) DEFAULT NULL,
-  `fecha` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `fecha` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `usuario_id` (`usuario_id`) USING BTREE,
   CONSTRAINT `bitacora_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of bitacora
 -- ----------------------------
+INSERT INTO `bitacora` VALUES ('1', '1', 'Inicio de sesión ', '2017-06-13 23:34:02');
+INSERT INTO `bitacora` VALUES ('2', '1', 'actualizacion', '2017-06-13 23:34:55');
 
 -- ----------------------------
 -- Table structure for `clientes`
@@ -56,11 +58,9 @@ CREATE TABLE `clientes` (
 DROP TABLE IF EXISTS `detalle_factura`;
 CREATE TABLE `detalle_factura` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `cantidad` int(11) NOT NULL,
-  `producto_id` int(11) NOT NULL,
   `factura_id` int(11) NOT NULL,
-  `base` float DEFAULT NULL,
-  `iva` float DEFAULT NULL,
+  `producto_id` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `producto_id` (`producto_id`),
   KEY `factura_id` (`factura_id`),
@@ -205,8 +205,8 @@ CREATE TABLE `productos` (
   `codigo` varchar(50) DEFAULT NULL,
   `item` varchar(128) DEFAULT NULL,
   `descripcion` text,
-  `observaciones` text,
   `estatus` int(1) DEFAULT NULL,
+  `imagen` varchar(255) DEFAULT '/views/images/productos/noimagen.jpg',
   PRIMARY KEY (`id`),
   KEY `grupo_id` (`grupo_id`),
   CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`grupo_id`) REFERENCES `pgrupos` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
@@ -306,7 +306,7 @@ CREATE TABLE `usuarios` (
   `nivel` int(1) NOT NULL,
   `keyreg` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of usuarios
@@ -314,4 +314,7 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` VALUES ('1', 'info@gesmaca.com', 'e10adc3949ba59abbe56e057f20f883e', 'Usuario Administrador', '1', '0', '0', null);
 INSERT INTO `usuarios` VALUES ('2', 'analista@gesmaca.com', 'e10adc3949ba59abbe56e057f20f883e', 'Laura Guevara', '1', '0', '1', null);
 INSERT INTO `usuarios` VALUES ('3', 'compras@mercado.com', 'e10adc3949ba59abbe56e057f20f883e', 'Fulano de Tal', '1', '0', '2', null);
-INSERT INTO `usuarios` VALUES ('4', 'deltagamma2000@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'daniel gabriele', '0', '0', '0', '411b1f8b77777af629400fcf96e3077d');
+INSERT INTO `usuarios` VALUES ('4', 'deltagamma2000@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'daniel gabriele', '1', '0', '0', '62cf9a7a6a3f63a98a298dea5f05d6e3');
+INSERT INTO `usuarios` VALUES ('5', 'dgabriele3780@gmail.com3', 'e10adc3949ba59abbe56e057f20f883e', 'DG', '1', '0', '2', '');
+INSERT INTO `usuarios` VALUES ('6', 'dgabriele3780@gmail.com1', 'e10adc3949ba59abbe56e057f20f883e', 'Daniel Gabriele', '0', '0', '1', '9d95486871e6eae9c8a58290728b2f2d');
+INSERT INTO `usuarios` VALUES ('7', 'info@gesmaca.com0', 'e10adc3949ba59abbe56e057f20f883e', 'Daniel Gabriele', '0', '0', '2', '23f5310c0e07c9bde00a5efcbfcd02f9');
