@@ -7,7 +7,6 @@ class Conexion extends mysqli{
     $this->set_charset("utf8");
   }
   public function __destruct(){
-
   }
   public function rows($query){
     return mysqli_num_rows($query);
@@ -17,6 +16,9 @@ class Conexion extends mysqli{
   }
   public function recorrer($query){
     return mysqli_fetch_array($query);
+  }
+  public function ultiID($query){
+    return mysqli_insert_id($query);
   }
 
 }

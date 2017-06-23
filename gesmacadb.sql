@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2017-06-19 01:38:05
+Date: 2017-06-20 18:32:06
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -46,11 +46,13 @@ CREATE TABLE `clientes` (
   `direccion` text,
   `correo` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of clientes
 -- ----------------------------
+INSERT INTO `clientes` VALUES ('1', 'Juan Carlos & Asociados', 'J-1234567890', 'Carretera Nacional Cagua - La Villa, Urb Villa Soledad', 'jcyasociados@outlook.com');
+INSERT INTO `clientes` VALUES ('2', 'Procesadora E&A, C.A.', 'J-9876543215', 'Carrera 21, Barquisimeto Edo. Lara', 'procesadoraeya@correo.com');
 
 -- ----------------------------
 -- Table structure for `detalle_factura`
@@ -286,11 +288,14 @@ CREATE TABLE `telefonos_cliente` (
   PRIMARY KEY (`id`),
   KEY `proveedor_id` (`cliente_id`),
   CONSTRAINT `telefonos_cliente_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of telefonos_cliente
 -- ----------------------------
+INSERT INTO `telefonos_cliente` VALUES ('1', 'General', '+582445555555', '1');
+INSERT INTO `telefonos_cliente` VALUES ('2', 'Compras', '+582445555552', '1');
+INSERT INTO `telefonos_cliente` VALUES ('3', 'Dep. Ventas', '+58412546255500', '1');
 
 -- ----------------------------
 -- Table structure for `usuarios`
@@ -314,7 +319,5 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` VALUES ('1', 'info@gesmaca.com', 'e10adc3949ba59abbe56e057f20f883e', 'Usuario Administrador', '1', '0', '0', null);
 INSERT INTO `usuarios` VALUES ('2', 'analista@gesmaca.com', 'e10adc3949ba59abbe56e057f20f883e', 'Laura Guevara', '1', '0', '1', null);
 INSERT INTO `usuarios` VALUES ('3', 'compras@mercado.com', 'e10adc3949ba59abbe56e057f20f883e', 'Fulano de Tal', '1', '0', '2', null);
-INSERT INTO `usuarios` VALUES ('4', 'deltagamma2000@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'daniel gabriele', '1', '0', '0', '62cf9a7a6a3f63a98a298dea5f05d6e3');
-INSERT INTO `usuarios` VALUES ('5', 'dgabriele3780@gmail.com3', 'e10adc3949ba59abbe56e057f20f883e', 'DG', '1', '0', '2', '');
-INSERT INTO `usuarios` VALUES ('6', 'dgabriele3780@gmail.com1', 'e10adc3949ba59abbe56e057f20f883e', 'Daniel Gabriele', '0', '0', '1', '9d95486871e6eae9c8a58290728b2f2d');
-INSERT INTO `usuarios` VALUES ('7', 'info@gesmaca.com0', 'e10adc3949ba59abbe56e057f20f883e', 'Daniel Gabriele', '0', '0', '2', '23f5310c0e07c9bde00a5efcbfcd02f9');
+INSERT INTO `usuarios` VALUES ('4', 'deltagamma2000@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'daniel gabriele', '0', '0', '1', null);
+INSERT INTO `usuarios` VALUES ('5', 'dgabriele3780@gmail.com3', 'e10adc3949ba59abbe56e057f20f883e', 'DG', '0', '0', '2', null);

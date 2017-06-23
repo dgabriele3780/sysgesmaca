@@ -20,7 +20,7 @@ if($db->rows($sql) > 0) {
     <td>'.$data['correo'].'</td>
     <td>
     <button class="btn btn-success btn-rounded btn-sm" data-toggle="modal" data-target=".detallesC" title="Detalles" onclick="detallesC('.$data['id'].')"><i class="glyphicon glyphicon-search"></i></button>
-    <button class="btn btn-warning btn-rounded btn-sm" title="Editar" onclick="editarC('.$data['id'].')"><i class="glyphicon glyphicon-pencil"></i></button>
+    <button class="btn btn-primary btn-rounded btn-sm" data-toggle="modal" data-target=".editarC" title="Editar" onclick="editarC('.$data['id'].')"><i class="glyphicon glyphicon-pencil"></i></button>
     </td>
     </tr>';
   }
